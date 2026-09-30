@@ -1,65 +1,68 @@
-# Web Framework Development Project
+# GAA League Manager (Angular + Express)
 
-## Overview
-This project is part of the Web Framework Development module, focusing on creating a dynamic web application using Angular for the frontend and a REST API using Express for the backend. The project simulates a sports management system for the GAA NFL, allowing users to view teams, players, match results, and statistics.
+A web app for the GAA National Football League: teams, players, results, league tables and stats. The front end is Angular and it talks to an Express REST API backed by MySQL.
 
-## Project Structure
-- **Web Framework Submission Docs**: Includes checklist for the project
-- **Web Framework Code Folder**:
-  - **Angular Project Directory**: ` \Web Framework Code\a2ng_`
-  - **REST API Directory**: ` \Web Framework Code\a2restapi_`
+## Features
 
-### Angular Project (`a2ng_`)
-This is the frontend of the application, built with Angular. It includes the following features:
-- **Navigation Bar**: A consistent navigation bar implemented using Angular routing, styled with Bootstrap.
-- **Teams Component**: Displays team data in a sortable table, fetches data using Angular Services, and includes links to the Wikipedia pages of the teams.
-- **Players Component**: Shows players sorted by team and name, with a dropdown for filtering players by team.
-- **Results Component**: Displays match results, with navigation between different rounds and filtering by team name.
-- **Tables Component**: Shows standings for Division 1 teams, calculating values such as Points, Wins, Draws, Losses, and Goal Differences using JavaScript.
-- **Stats Component**: Visualizes team performance using d3.js, including match scores and form, with scatter plots and bar charts.
-- **Login Component**: Provides user authentication, updating the navigation bar upon login/logout.
-- **Admin Component**: Allows admin users to edit and delete match results, with filters for rounds.
+- **Teams:** a sortable table with links to each team's Wikipedia page.
+- **Players:** sorted by team and name, with a team filter.
+- **Results:** match results by round, with round navigation and a team filter.
+- **Tables:** Division 1 standings (points, wins, draws, losses, goal difference) calculated in the app.
+- **Stats:** d3.js charts of team form and match scores (scatter plots and bar charts).
+- **Login and admin:** after login the navbar updates, and admins can edit and delete match results by round.
 
-### REST API (`a2restapi_`)
-The backend REST API is built with Express and connected to a SQL database. It includes the following endpoints:
-- `GET /teams`: Retrieves team data.
-- `GET /players`: Retrieves player data.
-- `GET /results`: Retrieves match results.
-- `GET /results/:round`: Retrieves match results for a specific round.
+## Tech stack
 
-## Setup Instructions
+**Frontend:** Angular 17, Bootstrap 5, d3.js
+**Backend:** Node.js, Express, MySQL
 
-### Prerequisites
-- **Node.js**: Ensure you have Node.js installed. It includes npm, which is required to install dependencies.
-- **MySQL**: Ensure You have MYSQL Set up & run the provided script. 
+## API
 
-## Installation 
-#### REST API 
-1. Navigate to the REST API directory:
-  `cd \Web Framework Code\a2restapi_"`
-2. Install the necessary dependencies:
-   `npm install`
-3. Start the REST API server:
-   `node index.js`
-#### Angular Frontend 
-1. Navigate to the Angular project directory:
-   `cd \Web Framework Code\a2ng_"`
-3. Install Angular dependencies:
-   `npm install`
-3. Run the Angular development server:
-   `ng serve`
-The application will be accessible at `http://localhost:4200/`.
+| Method | Endpoint | Purpose |
+|---|---|---|
+| GET | `/teams` | All teams |
+| GET | `/players` | All players |
+| GET | `/results` | All match results |
+| GET | `/results/:round` | Results for one round |
+| POST | `/login` | Log in |
+| POST | `/results/update` | Edit a result (admin) |
+| DELETE | `/results/:id` | Delete a result (admin) |
 
-# Images
-![image](https://github.com/user-attachments/assets/fcf4072f-830f-4510-9e68-594d749fc2a9)
-![image](https://github.com/user-attachments/assets/5d8ec0c9-9408-4e51-a154-bd3bb5266a6e)
-![image](https://github.com/user-attachments/assets/9903c61a-2f77-4485-afec-6f964100fa2b)
-![image](https://github.com/user-attachments/assets/a3ba54bd-4985-4f26-98ff-d4175b3eef49)
-![image](https://github.com/user-attachments/assets/c4dc2cf6-5a0e-44b2-be14-823dd22a037c)
-![image](https://github.com/user-attachments/assets/d0148508-fabd-42ce-9b7a-251ef37672f0)
-![image](https://github.com/user-attachments/assets/bab388ab-3570-43d3-bc09-734734bd6a3c)
+## Getting started
 
+Needs Node.js, the Angular CLI and a MySQL database set up with the provided script.
 
+```bash
+# REST API
+cd "Web Framework Code/a2restapi_"
+npm install
+node index.js
 
+# Angular app, in a second terminal (http://localhost:4200)
+cd "Web Framework Code/a2ng_"
+npm install
+ng serve
+```
 
+## Screenshots
 
+![Screenshot 1](https://github.com/user-attachments/assets/fcf4072f-830f-4510-9e68-594d749fc2a9)
+![Screenshot 2](https://github.com/user-attachments/assets/5d8ec0c9-9408-4e51-a154-bd3bb5266a6e)
+![Screenshot 3](https://github.com/user-attachments/assets/9903c61a-2f77-4485-afec-6f964100fa2b)
+![Screenshot 4](https://github.com/user-attachments/assets/a3ba54bd-4985-4f26-98ff-d4175b3eef49)
+![Screenshot 5](https://github.com/user-attachments/assets/c4dc2cf6-5a0e-44b2-be14-823dd22a037c)
+![Screenshot 6](https://github.com/user-attachments/assets/d0148508-fabd-42ce-9b7a-251ef37672f0)
+![Screenshot 7](https://github.com/user-attachments/assets/bab388ab-3570-43d3-bc09-734734bd6a3c)
+
+## Project structure
+
+```
+Web Framework Code/
+├── a2ng_/          # Angular front end (components: teams, players, results, tables, stats, login, admin)
+└── a2restapi_/     # Express REST API
+Web Framework Submission Docs/   # submission checklist + cover sheet
+```
+
+## Context
+
+Web Framework Development module (2024).
